@@ -1,0 +1,35 @@
+<script>
+    let database = []
+       database[0] = "Apel"
+       database[1] = "Jeruk"
+       database[2] = "Durian"
+       database[3] = "Melon"
+
+let konfirmasi = true
+
+const printData = () => { 
+    return database.map((value, idx) => {
+        return `${idx + 1}. ${value}`
+    }).join("\n");
+}
+while(konfirmasi) {
+    let menu = prompt(`Menu data buah :
+        1. Lihat Data
+        2. Tambah Data
+        3. Hapus Data
+        4. Edit data`) 
+
+    if (menu == "1") { 
+        alert (`List data:`, database)
+    } else if (menu == "2"){
+        let newData = prompt (`Masukan Data Baru`); 
+        database.push (newData); 
+    }else if (menu == "3"){
+        let no = parseInt (prompt(`Pilih data yang akan dihapus :${listData}`));
+        database.splice(no, -1,1) 
+    }else{
+        alert("Menu yang dicari tidak ada")
+    }
+}
+
+</script>

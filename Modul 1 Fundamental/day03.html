@@ -1,0 +1,33 @@
+<script>
+ let namaBuah = []
+    namaBuah[0] = "Apel"
+    namaBuah[1] = "Jeruk"
+    namaBuah[2] = "Durian"
+    namaBuah[3] = "Melon"
+while (true) {
+    let tampung = ''
+    let prompt1 = prompt("Silahkan Atur Data Barang"+ `\n1. Tambah Data`+ `\n2. Hapus Data`+ `\n3. Lihat Data` + `\n4. Edit Data`) 
+    if (prompt1 == 3) {
+    //   alert(namaBuah.toString().split(",").join("\n"))
+        for(let i = 0 ; i < namaBuah.length ; i ++) {
+            tampung += `${i+1}. ${namaBuah[i]}\n`
+        }
+        alert(tampung)
+    } else if (prompt1 == 1){
+        let prompt2 = prompt("Silahkan Masukan nama buah yang ingin dimasukan:")
+        namaBuah.push(prompt2)
+
+    } else if (prompt1 == 2){
+        let hapus = prompt("Silahkan Masukan data mana yang ingin dihapus:")
+       namaBuah.splice(hapus -1, hapus)}
+
+      else if (prompt1 == 4){
+        let edit = prompt("Silahkan Masukan angka mana yang ingin di edit")
+        let baru = prompt("Silahkan Masukan ingin memasukan kata apa")
+       namaBuah.splice (edit, 0, baru)}
+
+    
+    alert("kembali ke menu")
+}
+
+</script>

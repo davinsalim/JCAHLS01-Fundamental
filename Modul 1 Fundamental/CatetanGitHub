@@ -1,0 +1,14 @@
+git hub = online | git = offline, buat sharing kalau mau kerja bersama
+git lab = mirip dengan git hub  (google)
+bit bucket =  git hub punya atlasian
+kalau di aktifkan ada .gitfolder
+    data logger untuk mengecek apa aja yang kita kerjakan
+    git init ( ginit inizialization) 
+    ada 3 step dalam git
+        - modifier : mencatat perubahan yg terjadi
+        - staged : waiting list sebelom disimpan
+        - commited : program disimpan kedalam GIT
+
+Push - menjadi remote project 
+git --version
+git config -- list

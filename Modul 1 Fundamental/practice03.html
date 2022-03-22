@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing your shape</title>
+</head>
+<body>
+    <div id="container">
+    <h1> Drawing Your Shape </h1>
+    <select id="bentuk">
+        <option value="segi">Segitiga </option>
+        <option value="kotak"> Persegi </option>
+    <h2> Size of Shape </h2>
+    <input id="size" type="number" /> 
+    <button type="button" onclick="handleSubmit()">Generate</button>
+    <h3 id="hasil"> Hasil Gambar </h3>
+    </div>
+</body>
+
+<script>
+
+
+const handleSubmit =()=>{
+    document.getElementById("hasil").innerHTML = null 
+    let shape = document.getElementById("bentuk").value;
+    let size = parseInt(document.getElementById("size").value);
+    printData(shape , size);}
+
+const printData=( bentuk , ukuran)=> {
+    let segi = "";
+    if (bentuk =="segi") {
+        console.log("enter here1")
+        for (let i = 0; i <= ukuran; i++) {
+            for (let j = 1; j<=ukuran; j++){
+                if (j <=i ) {
+                    if (j%2) {
+                    segi = segi + "* "
+                    } else {
+                    segi = segi +"# " 
+                    }
+                }      
+            }
+        if (i<ukuran) {
+            segi += "<br />"
+            }
+    }
+    } else if (bentuk == "kotak"){
+        for (let i = 0; i<ukuran; i++){
+        for (let j = 1; j<=ukuran; j++){
+            if (j%2 ) {
+                segi += "* "
+            } else {segi += "# "}
+        }
+    if (i<ukuran) {
+        segi += "<br />"
+
+        }
+
+        }
+    }
+   document.getElementById("hasil").innerHTML = segi 
+}
+  </script> 
+</html>
+
+

@@ -1,0 +1,35 @@
+<script>
+    let database = []
+       database[0] = "Apel"
+       database[1] = "Jeruk"
+       database[2] = "Durian"
+       database[3] = "Melon"
+
+let konfirmasi = true
+while(konfirmasi) {
+    let listData = ''
+    let index = 0; 
+    let menu = prompt(`Menu data buah :
+        1. Lihat Data
+        2. Tambah Data
+        3. Hapus Data
+        4. Edit data`) 
+    database.forEach( (value) => {
+        index = index + 1
+        listData += `${index} ${value};\n`; 
+    }) 
+    if (menu == "1") { 
+        alert (`List data: \n ${listData}`)
+        //database[database.length]=newData;
+    } else if (menu == "2"){
+        let newData = prompt (`Masukan Data Baru`); 
+        database.push (newData); 
+    }else if (menu == "3"){
+        let no = parseInt (prompt(`Pilih data yang akan dihapus :\n${listData}`));
+        database.splice(no, -1,1) 
+    }else{
+        alert("Menu yang dicari tidak ada")
+    }
+}
+
+</script>

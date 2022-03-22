@@ -1,0 +1,71 @@
+<script>
+    class Produk{
+        constructor(_name, _stock, _harga) {
+            this.name = _name; 
+            this.stock = _stock;
+            this.harga = _harga;
+        }
+
+    getInfo = (numb, expDate = null) => {
+        if (expDate) {
+            return `${numb}. ${this.name} Stoknya =${this.stock}, IDR ${this.harga.toLocaleString()}, Exp. ${expDate}`
+        } else {
+            return `${numb}. ${this.name} Stoknya =${this.stock}, IDR ${this.harga.toLocaleString()}`
+        }
+    }
+    }
+    class FnB extends Produk {
+
+        constructor(_name, _stock, _harga, _type, _expDate) {
+            super(_name, _stock, _harga);
+            this.type = _type;
+            this.expDate = _expDate;
+        }
+    };
+    
+    let konfirmasi = true;
+    let dbProd = []; 
+
+    let printProducts = () => { 
+        let list = dbProd.map ((value, index) => {
+            return value.getInfo(index + 1, value.expDate)
+        })
+             return list.join("\n")
+    }
+
+    // let printProducts2 = () => { 
+    //     let list = dbProd.map ((value, index) => {
+    //             return `${index + 1}. ${value.name} Stoknya = ${value.stock}, IDR. ${value.harga.toLocaleString()}`;
+    //             })
+    //             return (list.join("\n"));
+    // }
+
+    while(konfirmasi) {
+        let menu = prompt(`Selamat Datang di Tokoku :
+            1. Tambah Data
+            2. Cek Stock`) 
+
+            if (menu == "1"){
+            let kategori = prompt(`Apakah produk termasuk FnB?
+            1. Ya 
+            2. Tidak`)
+                if (kategori == "1") {
+                    let namaproduk = prompt (`Masukan Nama Produk`);
+                    let stockproduk = parseInt(prompt (`Masukan Jumlah Stock`));
+                    let hargaproduk = parseInt(prompt (`Masukan Harga Produk`));
+                    let typeproduk = prompt (`Masukan Tipe Produk`);
+                    let expproduk = prompt (`Masukan Expiry Date Produk`);
+                    dbProd.push(new FnB (namaproduk, stockproduk, hargaproduk, typeproduk, expproduk));
+                } else {
+                    let namaproduk = prompt (`Masukan Nama Produk`);
+                    let stockproduk = prompt (`Masukan Jumlah Stock`);
+                    let hargaproduk = prompt (`Masukan Harga Produk`)
+                    dbProd.push(new Produk (namaproduk, stockproduk, hargaproduk));
+                }
+            // let dbProduk = []; O
+            //     dbProduk.push(new Produk (this.name))
+            } else if (menu == "2"){ 
+                alert(`Stock Produk: \n ${printProducts()}`)
+            }
+        }
+ </script>

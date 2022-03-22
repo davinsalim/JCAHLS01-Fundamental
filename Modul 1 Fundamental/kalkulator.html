@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+</head>
+
+</form>
+<body>
+    <h3 id="title">Simple Calculator</h3>
+    <form>
+        <input id="angka1" type="number" /> Masukan Angka 1 </input>
+        <input id="angka2" type="number" /> Masukan Angka 2 </input>
+        <button type="Button" onclick="getValue()"> Operate </button>   
+    <h4 id="angka3"> Hasil Perjumlahan: </h4>
+    <h5 id="angka4"> Hasil Pengurangan: </h5>   
+    <h6 id="angka5"> Hasil Perkalian: </h6>
+    <h7 id="angka6"> Hasil Pembagian: </h7>
+</body>
+<script>
+function getValue(){
+let angka1 = document.getElementById("angka1").value;
+let angka2 = document.getElementById("angka2").value;
+let sum = parseInt(angka1) + parseInt(angka2);
+let min = parseInt(angka1) - parseInt(angka2);
+let mul = parseInt(angka1) * parseInt(angka2);
+let div = parseInt(angka1) / parseInt(angka2);
+
+document.getElementById("angka3").value = sum;
+document.getElementById("angka3").value = min;
+document.getElementById("angka3").value = mul;
+document.getElementById("angka3").value = div;
+
+angka3.innerHTML = `hasil perjumlahan ${sum}`
+angka4.innerHTML = `hasil pengurangan ${min}`
+angka5.innerHTML = `hasil perkalian ${mul}`
+angka6.innerHTML = `hasil pembagian ${div}`
+}
+</script>
+</html>

@@ -1,0 +1,58 @@
+<script>
+let barang = [
+{ 
+    name: "hoodie",
+    stock: 12,
+    price: 75000  
+},
+{
+    name: "sepatu",
+    stock: 15,
+    price: 15000  
+}]
+;
+
+let konfirmasi = true;
+
+const printData = () => { 
+    return barang.map((value, idx) => {
+        return `${idx + 1}. ${value.name}, stoknya ${value.stock}, Rp. ${value.price}`
+    }).join("\n");
+}
+
+while(konfirmasi) {
+    let menu = prompt(`Menu product :
+        1. Lihat Data
+        2. Tambah Data
+        3. Hapus Data
+        4. Edit data`) 
+
+    if (menu == "1") { 
+        alert (`List data: \n${printData()}`)
+    } else if (menu == "2"){
+        let newName = prompt (`Masukan Nama Barang`)
+        let newStock = prompt (`Masukan Jumlah Stock`)
+        let newPrice = prompt (`Masukan Harga Baru`)
+        let newObject = {
+            name: newName,
+            stock: newStock,
+            price: newPrice
+        } 
+        barang.push (newObject); 
+    }else if (menu == "3"){
+        let no = parseInt (prompt(`Pilih data yang akan dihapus :\n${printData()}`));
+        barang.splice(no, -1, 1) 
+    }else if (menu == "4"){
+        let edit = prompt("Silahkan Masukan angka mana yang ingin di edit")
+        let nn = prompt("Silahkan Masukan ingin memasukan kata apa")
+        let ns = prompt("Silahkan Masukan jumlah stock")
+        let np = prompt("Silahkan Masukan harga")
+        barang[edit-1].name = nn; 
+        barang[edit-1].price = np; 
+        barang[edit-1].stock = ns; 
+  
+    }else{
+        alert("Menu yang dicari tidak ada")
+    }
+} 
+</script>

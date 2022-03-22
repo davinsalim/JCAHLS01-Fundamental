@@ -1,0 +1,78 @@
+<script>
+    let barang = [
+    { 
+        name: "Jaket",
+        stock: 20,
+        price: 75000  
+    },
+    {
+        name: "Kaos",
+        stock: 15,
+        price: 35000  
+    },
+    {
+        name: "Sepatu",
+        stock: 10,
+        price: 75000  
+    }]
+    ;
+    
+    let konfirmasi = true;
+    
+    const printData = () => { 
+        return barang.map((value, idx) => {
+            return `${idx + 1}. ${value.name}, stoknya ${value.stock}, IDR. ${value.price}`
+        }).join("\n");
+    }
+
+    const beliBarang = (nomorBarang) => { 
+        return `Beli ${barang[nomorBarang - 1].name} berapa?`
+    }
+
+    while(konfirmasi) {
+        let menu = prompt(`Selamat Datang di Tokoku :
+            1. Tambah Data
+            2. Beli Product
+            3. Cek Stock`) 
+    
+        if (menu == "3") { 
+            alert (`Stock Produk: \n${printData()}`)
+            
+        } else if (menu == "2"){
+            let beli = prompt (`Silahkan pilih barang: \n${printData()}`)
+            let jumlahBeli = prompt(beliBarang(beli)) 
+            if (jumlahBeli > barang[beli-1].stock){
+                alert (`barang tidak ada stock`)
+            } else{
+            
+            let totalBelanja = barang[beli - 1].price * jumlahBeli
+            let uangClient = prompt(`Total belanja anda: Rp ${totalBelanja} Masukan uang anda`)
+            let pengurangan = uangClient - totalBelanja
+            if (uangClient > totalBelanja){
+                alert (`kembalian anda Rp. ${pengurangan}`)
+                //dataset
+                //stock awal - jumlahbeli
+                barang[beli-1].stock  = barang[beli-1].stock  - jumlahBeli
+
+            } 
+            else {
+             alert (`uang anda tidak cukup`)
+            }
+            
+        } }
+        else if (menu == "1"){
+            let newName = prompt (`Masukan Nama Barang`)
+            let newStock = prompt (`Masukan Jumlah Stock`)
+            let newPrice = prompt (`Masukan Harga`)
+            let newObject = {
+                name: newName,
+                stock: newStock,
+                price: newPrice
+        } 
+        barang.push (newObject); }
+      
+        else{
+            alert("Menu yang dicari tidak ada")
+        }
+    } 
+    </script>
