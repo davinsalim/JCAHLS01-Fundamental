@@ -31,4 +31,6 @@ Management program secara online. Sehingga, program/code itu bisa kita share sec
    - - git add . : jika semua file 
 4. Menyimpan perubahan di commited session 
    - git commit -m "pesan mengenai perubahan yang dilakukan"
-   - 
+   - git log untuk melihat commit apa saja yang pernah dilakukan
+5. Melihat history commit menggunakan 
+   - git log 
