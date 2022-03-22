@@ -34,3 +34,9 @@ Management program secara online. Sehingga, program/code itu bisa kita share sec
    - git log untuk melihat commit apa saja yang pernah dilakukan
 5. Melihat history commit menggunakan 
    - git log 
+6. Menambahkan link github
+   - git remote add alias_name link_github
+7. Konfigurasi branch utama
+   - git branch -m nama_branch
+8. Mengupload / Menyimpan ke github
+   - git push -u alias_name nama_branch
